@@ -19,16 +19,16 @@ class Calculation {
         
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
-            let left = Int(operationsToReduce[0])!
+            let left = Float(operationsToReduce[0])!
             let operand = operationsToReduce[1]
-            let right = Int(operationsToReduce[2])!
+            let right = Float(operationsToReduce[2])!
             
-            let result: Int
+            let result: Float
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
             case "/": result = left / right
-            case "*":result = left * right
+            case "x":result = left * right
             default: fatalError("Unknown operator !")
             }
             

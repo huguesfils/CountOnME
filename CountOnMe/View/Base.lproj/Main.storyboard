@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,6 +49,9 @@
                                         <state key="normal" title="x">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedMultButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="QMo-eo-qyH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3O-0d-K0d">
                                         <rect key="frame" x="257.5" y="0.0" width="77.5" height="64"/>
@@ -57,6 +60,9 @@
                                         <state key="normal" title="/">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedDivButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="EoM-bE-UqT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -116,6 +122,9 @@
                                                 <state key="normal" title="AC">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="resetWith_sender:" destination="eqK-jh-KKu" eventType="touchUpInside" id="fl1-Tz-c2o"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -250,7 +259,6 @@
                         <viewLayoutGuide key="safeArea" id="tkC-PJ-pit"/>
                     </view>
                     <connections>
-                        <outlet property="allClear" destination="4zz-YF-pe4" id="wUI-aW-xsG"/>
                         <outlet property="textView" destination="T2H-yn-nBB" id="yqe-Yo-Sag"/>
                         <outletCollection property="numberButtons" destination="YD6-ul-r3f" collectionClass="NSMutableArray" id="c8W-uL-ZHg"/>
                         <outletCollection property="numberButtons" destination="Raa-av-x4n" collectionClass="NSMutableArray" id="P52-Zx-bMS"/>
