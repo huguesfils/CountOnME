@@ -8,7 +8,16 @@
 
 import Foundation
 
+extension Float
+{
+    var cleanValue: String
+    {
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
+    }
+}
+
 class Calculation {
+    
     
     var total = 0
     var elements: [String] = []
@@ -31,9 +40,9 @@ class Calculation {
             case "x":result = left * right
             default: fatalError("Unknown operator !")
             }
-            
+                        
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
-            operationsToReduce.insert("\(result)", at: 0)
+            operationsToReduce.insert("\(result.cleanValue)", at: 0)
         }
         return operationsToReduce.first!
     }

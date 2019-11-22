@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        textView.text.removeAll()
     }
     
     
@@ -102,6 +103,7 @@ class ViewController: UIViewController {
     @IBAction func reset (_sender: UIButton) {
         textView.text.removeAll()
     }
+    
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         guard expressionIsCorrect else {
