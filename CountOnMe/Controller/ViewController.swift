@@ -8,36 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
 
-//    calculation.reset() ibaction
     var calculation = Calculation()
 
-    
-    var elements: [String] {
-        return textView.text.split(separator: " ").map { "\($0)" }
-    }
-    
-    // Error check computed variables
-    var expressionIsCorrect: Bool {
-        return elements.last != "+" && elements.last != "-"
-    }
-    
-    var expressionHaveEnoughElement: Bool {
-        return elements.count >= 3
-    }
-    
-    var canAddOperator: Bool {
-        return elements.last != "+" && elements.last != "-"
-    }
-    
-    var expressionHaveResult: Bool {
-        return textView.text.firstIndex(of: "=") != nil
-    }
-    
     // View Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +22,13 @@ class ViewController: UIViewController {
         textView.text.removeAll()
     }
     
-    
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else {
             return
         }
-        
-        if expressionHaveResult {
+        calculation.expressionHaveResult = textView.text.firstIndex(of: "=") != nil
+        if calculation.expressionHaveResult {
             textView.text = ""
         }
         
@@ -60,7 +36,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if canAddOperator {
+        if calculation.canAddOperator {
             textView.text.append(" + ")
             
         } else {
@@ -71,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
-        if canAddOperator {
+        if calculation.canAddOperator {
             textView.text.append(" - ")
         } else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -81,7 +57,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedMultButton(_ sender: UIButton){
-       if canAddOperator {
+        if calculation.canAddOperator {
                   textView.text.append(" x ")
               } else {
                   let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -91,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedDivButton(_ sender: UIButton){
-       if canAddOperator {
+       if calculation.canAddOperator {
                   textView.text.append(" / ")
               } else {
                   let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -106,20 +82,23 @@ class ViewController: UIViewController {
     
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        guard expressionIsCorrect else {
+        calculation.elements = textView.text.split(separator: " ").map { "\($0)" }
+        
+        guard calculation.expressionIsCorrect else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         
     
-        guard expressionHaveEnoughElement else {
+        guard calculation.expressionHaveEnoughElement else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         
-        textView.text.append(" = \(calculation.math(keyboard: elements))")
+        
+        textView.text.append(" = \(calculation.math())")
     }
 
 }

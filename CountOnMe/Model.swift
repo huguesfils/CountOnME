@@ -17,14 +17,26 @@ extension Float
 }
 
 class Calculation {
-    
-    
-    var total = 0
+    // Error check computed variables
+        var expressionIsCorrect: Bool {
+            return elements.last != "+" && elements.last != "-"
+        }
+        
+        var expressionHaveEnoughElement: Bool {
+            print(elements.count)
+            return elements.count >= 3
+        }
+        
+        var canAddOperator: Bool {
+            return elements.last != "+" && elements.last != "-"
+        }
+
     var elements: [String] = []
+    var expressionHaveResult: Bool = false
     
-    func math (keyboard: [String]) -> String{
+    func math () -> String{
         // Create local copy of operations
-        var operationsToReduce = keyboard
+        var operationsToReduce = elements
         
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
@@ -46,5 +58,9 @@ class Calculation {
         }
         return operationsToReduce.first!
     }
-    
+  
 }
+
+
+  
+   
