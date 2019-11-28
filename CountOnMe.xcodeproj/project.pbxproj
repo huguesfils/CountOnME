@@ -15,7 +15,7 @@
 		1FA43BE8224E569A00F565CB /* SimpleCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BE7224E569A00F565CB /* SimpleCalcTests.swift */; };
 		1FA43BF3224E569A00F565CB /* SimpleCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */; };
 		BB15BFF7237A2EE800176337 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB15BFF6237A2EE800176337 /* Default-568h@2x.png */; };
-		BB5C0EDD238EC28500E2A2CF /* logo hugues.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C0EDC238EC28500E2A2CF /* logo hugues.png */; };
+		BB5C09E9239015630008936A /* Icon-256.png in Resources */ = {isa = PBXBuildFile; fileRef = BB5C09E8239015630008936A /* Icon-256.png */; };
 		BBE2E393237D7FE1000FCDC4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE2E392237D7FE1000FCDC4 /* Model.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalcUITests.swift; sourceTree = "<group>"; };
 		1FA43BF4224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB15BFF6237A2EE800176337 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BB5C0EDC238EC28500E2A2CF /* logo hugues.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo hugues.png"; sourceTree = "<group>"; };
+		BB5C09E8239015630008936A /* Icon-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-256.png"; sourceTree = "<group>"; };
 		BBE2E392237D7FE1000FCDC4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = CountOnMe/Model.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,7 @@
 		BB15BFF5237A2E7600176337 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BB5C0EDC238EC28500E2A2CF /* logo hugues.png */,
+				BB5C09E8239015630008936A /* Icon-256.png */,
 				BB15BFF6237A2EE800176337 /* Default-568h@2x.png */,
 				1FA43BD2224E569900F565CB /* AppDelegate.swift */,
 				1FA43BD9224E569A00F565CB /* Assets.xcassets */,
@@ -270,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB5C0EDD238EC28500E2A2CF /* logo hugues.png in Resources */,
 				1FA43BDD224E569A00F565CB /* LaunchScreen.storyboard in Resources */,
 				BB15BFF7237A2EE800176337 /* Default-568h@2x.png in Resources */,
 				1FA43BDA224E569A00F565CB /* Assets.xcassets in Resources */,
+				BB5C09E9239015630008936A /* Icon-256.png in Resources */,
 				1FA43BD8224E569900F565CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

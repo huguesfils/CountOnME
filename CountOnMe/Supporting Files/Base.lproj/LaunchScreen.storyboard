@@ -16,18 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo hugues.png" translatesAutoresizingMaskIntoConstraints="NO" id="9XV-hF-NGO">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8Gv-K7-Ydt"/>
-                                    <constraint firstAttribute="height" constant="200" id="JGJ-q0-oro"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="fBy-XM-hup">
+                                <rect key="frame" x="79" y="296" width="256" height="304"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9XV-hF-NGO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0BM-Vb-7eb"/>
-                            <constraint firstItem="9XV-hF-NGO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rsN-Vk-uVp"/>
+                            <constraint firstItem="fBy-XM-hup" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b2y-bt-eYV"/>
+                            <constraint firstItem="fBy-XM-hup" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iVB-85-bbE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo hugues.png" width="167" height="167"/>
+        <image name="Icon-256.png" width="61.439998626708984" height="73"/>
     </resources>
 </document>
