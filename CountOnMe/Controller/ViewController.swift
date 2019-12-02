@@ -78,6 +78,7 @@ class ViewController: UIViewController{
     
     @IBAction func reset (_sender: UIButton) {
         textView.text.removeAll()
+        calculation.reset()
     }
     
     
@@ -93,6 +94,12 @@ class ViewController: UIViewController{
     
         guard calculation.expressionHaveEnoughElement else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.present(alertVC, animated: true, completion: nil)
+        }
+        
+        guard !calculation.divideZero else {
+            let alertVC = UIAlertController(title: "Zéro!", message: "Division par zéro impossible", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
