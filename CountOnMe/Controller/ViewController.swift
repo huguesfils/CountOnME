@@ -63,6 +63,7 @@ class ViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+
     @IBAction func tappedDivButton(_ sender: UIButton) {
         if calculation.canAddOperator {
             textView.text.append(" / ")
@@ -73,10 +74,12 @@ class ViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+
     @IBAction func reset (_ sender: UIButton) {
         textView.text.removeAll()
         calculation.reset()
     }
+
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         calculation.elements = textView.text.split(separator: " ").map { "\($0)" }
 
