@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         guard let numberText = sender.title(for: .normal) else {
             return
         }
-        calculation.expressionHaveResult = textView.text.firstIndex(of: "=") != nil
+        calculation.updateExpression(number: textView.text)
         if calculation.expressionHaveResult {
             textView.text = ""
         }
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        calculation.elements = textView.text.split(separator: " ").map { "\($0)" }
+        calculation.addExpression(expr: textView.text)
 
         guard calculation.expressionIsCorrect else {
             let alertVC = UIAlertController(title: "Zéro!",

@@ -35,6 +35,14 @@ class Calculation {
     var elements: [String] = []
     var expressionHaveResult: Bool = false
 
+    func updateExpression(number: String) {
+        expressionHaveResult = number.firstIndex(of: "=") != nil
+    }
+
+    func addExpression(expr: String) {
+        elements = expr.split(separator: " ").map { "\($0)" }
+    }
+
     func math () -> String {
         // Create local copy of operations
         var operationsToReduce = simplifyMath(expression: elements)
