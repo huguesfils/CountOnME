@@ -12,6 +12,10 @@ import XCTest
 class SimpleCalcTests: XCTestCase {
     var calc: Calculation!
 
+    override func setUp() {
+        calc = Calculation()
+    }
+
     func testGivenOperationInElements_whenReset_thenElementsIsEmpty() {
         calc.addExpression(expr: "5 x 4")
 
@@ -20,14 +24,17 @@ class SimpleCalcTests: XCTestCase {
         XCTAssert(calc.elements.isEmpty)
     }
 
+    func testGivenDivisionInElements_whenDivideZero_thenElementsContainsZero() {
+        calc.addExpression(expr: "3 / 0")
 
-    override func setUp() {
-        calc = Calculation()
+        XCTAssert(calc.divideZero == true)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testGivenExpressionInElements_whenTappedEqual_thenExpressionIsCorrect() {
+        calc.addExpression(expr: "4 + 3")
+
+        XCTAssert(calc.expressionIsCorrect)
+        XCTAssert(calc.expressionHaveEnoughElement)
+        XCTAssert(calc.canAddOperator)
     }
 }
-
-//

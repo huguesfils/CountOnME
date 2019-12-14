@@ -33,6 +33,7 @@ class Calculation {
     }
 
     var elements: [String] = []
+
     var expressionHaveResult: Bool = false
 
     func updateExpression(number: String) {
