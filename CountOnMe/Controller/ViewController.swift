@@ -9,19 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    // MARK: - Outlets
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
 
+    // MARK: - Properties
     var calculation = Calculation()
 
-    // View Life cycles
+    // MARK: - Actions
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        textView.text.removeAll()
-    }
+           super.viewDidLoad()
+           // Do any additional setup after loading the view.
+           textView.text.removeAll()
+       }
 
-    // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else {
             return
@@ -32,6 +34,7 @@ class ViewController: UIViewController {
         }
         textView.text.append(numberText)
     }
+
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
         if calculation.canAddOperator {
             textView.text.append(" + ")
@@ -42,6 +45,7 @@ class ViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if calculation.canAddOperator {
             textView.text.append(" - ")

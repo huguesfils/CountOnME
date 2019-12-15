@@ -15,7 +15,8 @@ extension Float {
 }
 
 class Calculation {
-    // Error check computed variables
+
+    // MARK: - Properties
     var expressionIsCorrect: Bool {
         return elements.last != "+" && elements.last != "-"
     }
@@ -36,6 +37,7 @@ class Calculation {
 
     var expressionHaveResult: Bool = false
 
+    // MARK: - Methods
     func updateExpression(number: String) {
         expressionHaveResult = number.firstIndex(of: "=") != nil
     }
