@@ -30,11 +30,70 @@ class SimpleCalcTests: XCTestCase {
         XCTAssert(calc.divideZero == true)
     }
 
-    func testGivenExpressionInElements_whenTappedEqual_thenExpressionIsCorrect() {
-        calc.addExpression(expr: "4 + 3")
+    func testGivenExpressionInElements_whenTappedEqual_thenExpressionIsNotCorrect() {
+        let operators = ["+", "-", "x", "/"]
 
-        XCTAssert(calc.expressionIsCorrect)
-        XCTAssert(calc.expressionHaveEnoughElement)
-        XCTAssert(calc.canAddOperator)
+        for ope in operators {
+
+            calc.addExpression(expr: "4 \(ope)")
+
+            XCTAssertFalse(calc.expressionIsCorrect)
+            XCTAssertFalse(calc.expressionHaveEnoughElement)
+            XCTAssertFalse(calc.canAddOperator)
+
+            calc.reset()
+        }
     }
+
+    func testGivenExpression_whenTappedNumber_thenDidExpressionHaveResult() {
+        calc.updateExpression(number: "5")
+
+        XCTAssertFalse(calc.expressionHaveResult)
+    }
+
+    func testGivenExpression_whenTappedEqual_thenDidExpressionHaveResult() {
+        calc.updateExpression(number: "=")
+
+        XCTAssert(calc.expressionHaveResult)
+    }
+
+    func testGivenMultiplicationCalc_whenTappedEqual_thenExpressionIsSimplified() {
+        let expr = ["5", "x", "3"] // diviser en 3
+
+        let simplyfied = calc.simplifyMath(expression: expr)
+
+        XCTAssertEqual(simplyfied, ["15"])
+    }
+
+    func testGivenExtendMultiplicationCalc_whenTappedEqual_thenExpressionIsSimplified() {
+        let expr = ["5", "x", "3", "+", "8"] // diviser en 3
+
+        let simplyfied = calc.simplifyMath(expression: expr)
+
+        XCTAssertEqual(simplyfied, ["15", "+", "8"])
+    }
+
+    func testGivenExtendMultAndDivCalc_whenTappedEqual_thenExpressionIsSimplified() {
+        let expr = ["5", "x", "3", "+", "8", "/", "2"] // diviser en 3
+
+        let simplyfied = calc.simplifyMath(expression: expr)
+
+        XCTAssertEqual(simplyfied, ["15", "+", "4"])
+    }
+
+    func testGivenExpresion_whenTappedEqual_thenCalculation() { //math()
+        calc.elements = ["15", "+", "4", "-", "2"]
+
+        let total = calc.math()
+
+        XCTAssertEqual(total, "17")
+    }
+
+/*    func testGivenWrongExpression_whenTappedEqual_thenCalculationError() {
+        calc.elements = ["16", "/", "4"]
+
+        let total = calc.math()
+
+        XCTassert
+    }*/
 }

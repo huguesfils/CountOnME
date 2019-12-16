@@ -18,7 +18,7 @@ class Calculation {
 
     // MARK: - Properties
     var expressionIsCorrect: Bool {
-        return elements.last != "+" && elements.last != "-"
+        return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
 
     var divideZero: Bool {
@@ -30,7 +30,7 @@ class Calculation {
     }
 
     var canAddOperator: Bool {
-        return elements.last != "+" && elements.last != "-"
+        return expressionIsCorrect
     }
 
     var elements: [String] = []
@@ -61,9 +61,7 @@ class Calculation {
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
-            case "/": result = left / right
-            case "x":result = left * right
-            default: fatalError("Unknown operator !")
+            default: fatalError()
             }
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result.cleanValue)", at: 0)

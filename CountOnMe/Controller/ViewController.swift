@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         calculation.addExpression(expr: textView.text)
 
         guard calculation.expressionIsCorrect else {
-            let alertVC = UIAlertController(title: "Zéro!",
+            let alertVC = UIAlertController(title: "Zéro!", // modif titre
                 message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
