@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     // MARK: - Actions
     override func viewDidLoad() {
            super.viewDidLoad()
-           // Do any additional setup after loading the view.
            textView.text.removeAll()
        }
 
@@ -79,6 +78,7 @@ class ViewController: UIViewController {
         }
     }
 
+/// AC button action
     @IBAction func reset (_ sender: UIButton) {
         textView.text.removeAll()
         calculation.reset()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Float {
+extension Float { // Making decimal results more readable
     var cleanValue: String {
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
@@ -46,6 +46,7 @@ class Calculation {
         elements = expr.split(separator: " ").map { "\($0)" }
     }
 
+/// Main calculation function
     func math () -> String {
         // Create local copy of operations
         var operationsToReduce = simplifyMath(expression: elements)
@@ -69,11 +70,11 @@ class Calculation {
         return operationsToReduce.first!
     }
 
+/// More precised results for multiplication and division
     func simplifyMath (expression: [String]) -> [String] {
         var operationToReduce = expression
         while operationToReduce.firstIndex(of: "x") != nil || operationToReduce.firstIndex(of: "/") != nil {
             let operandIndex = operationToReduce.firstIndex(of: "x") ?? operationToReduce.firstIndex(of: "/")!
-            // alors nil
 
             let leftSide = Float(operationToReduce[operandIndex-1])! // transformation en float
             let rightSide = Float(operationToReduce[operandIndex+1])!
@@ -92,6 +93,7 @@ class Calculation {
         return operationToReduce
     }
 
+/// Logic of the AC button
     func reset () {
         elements = [String]()
     }

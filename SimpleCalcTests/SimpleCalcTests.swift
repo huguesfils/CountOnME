@@ -88,12 +88,4 @@ class SimpleCalcTests: XCTestCase {
 
         XCTAssertEqual(total, "17")
     }
-
-/*    func testGivenWrongExpression_whenTappedEqual_thenCalculationError() {
-        calc.elements = ["16", "/", "4"]
-
-        let total = calc.math()
-
-        XCTassert
-    }*/
 }
