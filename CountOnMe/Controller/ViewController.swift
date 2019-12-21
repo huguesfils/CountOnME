@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var numberButtons: [UIButton]!
 
     // MARK: - Properties
-    var calculation = Calculation()
+    var calculation = Calculation() // Making model communicate with controller
 
     // MARK: - Actions
     override func viewDidLoad() {
@@ -28,17 +28,17 @@ class ViewController: UIViewController {
             return
         }
         calculation.updateExpression(number: textView.text)
-        if calculation.expressionHaveResult {
+        if calculation.expressionHaveResult { //calling Model.swift properties
             textView.text = ""
         }
-        textView.text.append(numberText)
+        textView.text.append(numberText) //adding digit to the textView
     }
 
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if calculation.canAddOperator {
+        if calculation.canAddOperator { //calling Model.swift properties
             textView.text.append(" + ")
         } else {
-            let alertVC = UIAlertController(title: "Zéro!",
+            let alertVC = UIAlertController(title: "Zéro!", // in  case of error, calling alertVC
                 message: "Un operateur est déja mis !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alertVC, animated: true, completion: nil)
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if calculation.canAddOperator {
-            textView.text.append(" - ")
+            textView.text.append(" - ") //adding operator to the textView
         } else {
             let alertVC = UIAlertController(title: "Zéro!",
                 message: "Un operateur est déja mis !", preferredStyle: .alert)
@@ -78,33 +78,33 @@ class ViewController: UIViewController {
         }
     }
 
-/// AC button action
     @IBAction func reset (_ sender: UIButton) {
-        textView.text.removeAll()
-        calculation.reset()
+        textView.text.removeAll() //cleaning textView
+        calculation.reset()// calling func reset from Model.swift
     }
 
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         calculation.addExpression(expr: textView.text)
 
+        // checking errors with Model.swift properties
         guard calculation.expressionIsCorrect else {
-            let alertVC = UIAlertController(title: "Zéro!", // modif titre
+            let alertVC = UIAlertController(title: "Oups!",
                 message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         guard calculation.expressionHaveEnoughElement else {
-            let alertVC = UIAlertController(title: "Zéro!",
+            let alertVC = UIAlertController(title: "Oups!",
                 message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         guard !calculation.divideZero else {
-            let alertVC = UIAlertController(title: "Zéro!",
+            let alertVC = UIAlertController(title: "Oups!",
                 message: "Division par zéro impossible", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
-        textView.text.append(" = \(calculation.math())")
+        textView.text.append(" = \(calculation.math())") // calling func math for displaying result to the textView
     }
 }
