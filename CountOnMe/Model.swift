@@ -1,8 +1,8 @@
 //
 //  Model.swift
-//  CountOnMe
+//  SimpleCalc
 //
-//  Created by Hugues Fils Caparos on 14/11/2019.
+//  Created by Vincent Saluzzo on 29/03/2019.
 //  Copyright © 2019 Vincent Saluzzo. All rights reserved.
 //
 
