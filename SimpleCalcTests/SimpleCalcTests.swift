@@ -58,7 +58,7 @@ class SimpleCalcTests: XCTestCase {
     }
 
     func testGivenMultiplicationCalc_whenTappedEqual_thenExpressionIsSimplified() {
-        let expr = ["5", "x", "3"] // diviser en 3
+        let expr = ["5", "x", "3"]
 
         let simplyfied = calc.simplifyMath(expression: expr)
 
@@ -66,7 +66,7 @@ class SimpleCalcTests: XCTestCase {
     }
 
     func testGivenExtendMultiplicationCalc_whenTappedEqual_thenExpressionIsSimplified() {
-        let expr = ["5", "x", "3", "+", "8"] // diviser en 3
+        let expr = ["5", "x", "3", "+", "8"]
 
         let simplyfied = calc.simplifyMath(expression: expr)
 
@@ -74,14 +74,14 @@ class SimpleCalcTests: XCTestCase {
     }
 
     func testGivenExtendMultAndDivCalc_whenTappedEqual_thenExpressionIsSimplified() {
-        let expr = ["5", "x", "3", "+", "8", "/", "2"] // diviser en 3
+        let expr = ["5", "x", "3", "+", "8", "/", "2"]
 
         let simplyfied = calc.simplifyMath(expression: expr)
 
         XCTAssertEqual(simplyfied, ["15", "+", "4"])
     }
 
-    func testGivenExpresion_whenTappedEqual_thenCalculation() { //math()
+    func testGivenExpresion_whenTappedEqual_thenCalculation() {
         calc.elements = ["15", "+", "4", "-", "2"]
 
         let total = calc.math()

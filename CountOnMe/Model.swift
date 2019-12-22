@@ -76,7 +76,7 @@ class Calculation {
         while operationToReduce.firstIndex(of: "x") != nil || operationToReduce.firstIndex(of: "/") != nil {
             let operandIndex = operationToReduce.firstIndex(of: "x") ?? operationToReduce.firstIndex(of: "/")!
 
-            let leftSide = Float(operationToReduce[operandIndex-1])! // transformation en float
+            let leftSide = Float(operationToReduce[operandIndex-1])!
             let rightSide = Float(operationToReduce[operandIndex+1])!
             let operand = operationToReduce[operandIndex]
 
