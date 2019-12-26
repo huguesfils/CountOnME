@@ -58,12 +58,12 @@ class Calculation {
             let operand = operationsToReduce[1]
             let right = Float(operationsToReduce[2])!
 
-            let result: Float
+            var result: Float = 0
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
-            default: fatalError()
-            }
+            default: break
+         }
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result.cleanValue)", at: 0)
         }
