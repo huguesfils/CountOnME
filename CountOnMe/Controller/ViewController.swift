@@ -110,6 +110,14 @@ class ViewController: UIViewController {
             return self.present(alertVC, animated: true, completion: nil)
         }
 
-        textView.text.append(" = \(calculation.math())") // calling func math for displaying result to the textView
+        do { //calling func math for displaying result to the textView
+            try textView.text.append(" = \(calculation.math())")
+        } catch CalcError.error { // error if user tap equal two times
+            let alertVC = UIAlertController(title: "Oups!",
+                                            message: "Résultat déjà affiché", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.present(alertVC, animated: true, completion: nil)
+        } catch {
+        }
     }
 }

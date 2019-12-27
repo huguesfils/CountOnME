@@ -14,6 +14,10 @@ extension Float { // Making decimal results more readable
     }
 }
 
+enum CalcError: Error {
+     case error
+}
+
 class Calculation {
 
     // MARK: - Properties
@@ -47,7 +51,7 @@ class Calculation {
     }
 
 /// Main calculation function
-    func math () -> String {
+    func math () throws -> String {
         // Create local copy of operations
         var operationsToReduce = simplifyMath(expression: elements)
 
@@ -62,7 +66,7 @@ class Calculation {
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
-            default: break
+            default: throw CalcError.error
          }
             operationsToReduce = Array(operationsToReduce.dropFirst(3))
             operationsToReduce.insert("\(result.cleanValue)", at: 0)
